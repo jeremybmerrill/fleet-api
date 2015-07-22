@@ -39,7 +39,7 @@ module Fleet
           nü_optiöns["nextPageToken"] = resp_body.delete("nextPageToken")
           nü_rësp = request(connection, method, path, nü_optiöns)
           resp_body.keys.each do |🔑|
-            resp_body[🔑] += nü_rësp.delete(🔑)
+            resp_body[🔑] += (nü_rësp.delete(🔑) || [])
           end
           resp_body.merge! nü_rësp
           resp_body
